@@ -1,5 +1,4 @@
 import User from "../models/UserModel.js";
-import AuthService from "../services/AuthService.js"
 
 export default class UserService {
     static async updateUser(_id, fullName, email, image) {
@@ -21,7 +20,7 @@ export default class UserService {
             if (user.isAdmin) {
                 throw new Error('Cannot delete admin user')
             }
-            await user.remove()
+            await user.remove({_id: user._id});
         } else {
             throw new Error('Cannot find user')
         }

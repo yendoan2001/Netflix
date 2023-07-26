@@ -6,4 +6,5 @@ const UserRouter = express.Router();
 
 UserRouter.put('/', AuthMiddleware.protect, UserController.updateUser)
 UserRouter.delete('/', AuthMiddleware.protect, UserController.deleteUser)
+UserRouter.put('/password', AuthMiddleware.protect, UserController.changePassword)
 export default UserRouter;
