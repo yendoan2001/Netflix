@@ -1,12 +1,16 @@
 import AuthService from '../services/AuthService.js'
+import jwt from "jsonwebtoken";
+import User from "../models/UserModel.js";
+
 
 export default class AuthController {
     static async login(req, res) {
         try {
             let {email, password} = req.body;
-            await AuthService.login(email, password)
+            const user = await AuthService.login(email, password)
             res.status(200).json({
-                message: 'Login successfully'
+                message: 'Login successfully',
+                accessToken: user[1]
             })
         } catch (err) {
             res.status(500).json({
@@ -18,9 +22,11 @@ export default class AuthController {
 
     static async register(req, res) {
         try {
-            await AuthService.register(req.body)
+            const {fullName, email, password} = req.body
+            const user = await AuthService.register(fullName, email, password)
             res.status(201).json({
-                message: "Created user successfully"
+                message: "Created user successfully",
+                accessToken: user[1]
             })
         } catch (err) {
             res.status(500).json({
