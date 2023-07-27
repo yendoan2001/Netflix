@@ -1,6 +1,5 @@
 import UserService from "../services/UserService.js";
 import User from "../models/UserModel.js";
-import bcrypt from "bcrypt"
 
 
 export default class UserController {
@@ -21,7 +20,7 @@ export default class UserController {
 
     static async deleteUser(req, res) {
         try {
-            const _id = req.user._id
+            const _id = req.params.id
             await UserService.deleteUser(_id)
             res.json({
                 message: "Deleted successfully",
@@ -33,20 +32,30 @@ export default class UserController {
         }
     }
 
-    static async changePassword(req, res, next) {
+    static async changePassword(req, res) {
         const {oldPassword, newPassword} = req.body;
         try {
-            const user = await User.findById(req.user._id);
-            if (user && (await bcrypt.compare(oldPassword, user.password))) {
-                const newHashPassword = await bcrypt.hash(newPassword, 10)
-                user.password = newHashPassword
-                await user.save()
-                res.json({
-                    message: "Change password successfully"
-                })
+            const _id = req.user._id;
+            await UserService.changePassword(_id, oldPassword, newPassword);
+            res.json({
+                message: "Change password successfully",
+            })
+
+        } catch (e) {
+            res.status(400).json({
+                error: e.message
+            })
+        }
+    }
+
+    static async getLikedMovies(req, res) {
+        try {
+            const _id = req.user._id;
+            const user = await User.findById(_id)
+            if (user) {
+                res.json(user.likedMovies)
             } else {
-                res.status(401)
-                throw new Error('Invalid old password')
+                console.log('User not found')
             }
         } catch (e) {
             res.status(400).json({
@@ -54,4 +63,38 @@ export default class UserController {
             })
         }
     }
+
+    static async addLikedMovies(req, res) {
+        const {movieId} = req.body
+        try {
+            const _id = req.user._id;
+            await UserService.addLikedMovies(_id, movieId);
+            res.json({success: "Movie added successfully"})
+        } catch (e) {
+            res.json({error: e.message})
+        }
+    }
+
+    static async deleteLikedMovies(req, res) {
+        const _id = req.user._id;
+        try {
+            const user = await UserService.deleteLikedMovies(_id);
+            res.json({
+                message: "All likedMovies deleted successfully",
+                user: user
+            })
+        } catch (e) {
+            res.json({error: e.message})
+        }
+    }
+
+    static async getUsers(req, res) {
+        try {
+            const users = await User.find({})
+            res.json({users: users})
+        } catch (e) {
+            res.json({error: e.message})
+        }
+    }
+
 }
