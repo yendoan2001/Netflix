@@ -2,14 +2,17 @@ import mongoose from 'mongoose';
 
 const {Schema} = mongoose;
 
-const reviewSchema = new mongoose.Schema({
+export const reviewSchema = new mongoose.Schema({
         userId: {
-            type: [Schema.Types.ObjectId],
+            type: Schema.Types.ObjectId,
             ref: "User"
         },
         userName: {
             type: String,
             required: true
+        },
+        userImage: {
+            type: String,
         },
         rating: {
             type: Number,

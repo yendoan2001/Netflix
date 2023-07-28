@@ -10,6 +10,7 @@ export default class AuthController {
             const user = await AuthService.login(email, password)
             res.status(200).json({
                 message: 'Login successfully',
+                user: user,
                 accessToken: user[1]
             })
         } catch (err) {
@@ -26,6 +27,7 @@ export default class AuthController {
             const user = await AuthService.register(fullName, email, password)
             res.status(201).json({
                 message: "Created user successfully",
+                user: user,
                 accessToken: user[1]
             })
         } catch (err) {

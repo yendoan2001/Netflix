@@ -21,4 +21,27 @@ export default class MovieService {
             .limit(limit)
         return [movies, page, count, limit]
     }
+
+    static async createMovieReview(movie_id, user_id, user_fullName, user_image, rating, comment) {
+        const movie = await Movie.findById(movie_id)
+        if (movie) {
+            const alreadyReview = await movie.reviews.find(r => r.userId.toString() === user_id.toString());
+            if (alreadyReview) {
+                throw new Error(`You have already reviewed`)
+            } else {
+                const review = {
+                    userId: user_id,
+                    userName: user_fullName,
+                    userImage: user_image,
+                    rating: Number(rating),
+                    comment: comment
+                }
+                movie.reviews.push(review)
+                movie.numberOfReviews = movie.reviews.length
+                movie.rates = movie.reviews.reduce((acc, item) => item.rating + acc, 0) / movie.reviews.length
+                await movie.save()
+            }
+
+        }
+    }
 }

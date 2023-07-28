@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+import {reviewSchema} from "./ReviewModel.js";
 
 const {Schema} = mongoose;
 
 const movieSchema = new mongoose.Schema({
         userId: {
-            type: [Schema.Types.ObjectId],
+            type: Schema.Types.ObjectId,
             ref: "User"
         },
         name: {
@@ -52,10 +53,7 @@ const movieSchema = new mongoose.Schema({
             required: true,
             default: 0
         },
-        reviews: {
-            type: [Schema.Types.ObjectId],
-            ref: "Review"
-        },
+        reviews: [reviewSchema],
         cast: [
             {
                 name: {type: String, required: true},

@@ -55,7 +55,7 @@ export default class UserController {
             if (user) {
                 res.json(user.likedMovies)
             } else {
-                console.log('User not found')
+                res.json({error: 'User not found'})
             }
         } catch (e) {
             res.status(400).json({

@@ -6,17 +6,16 @@ import bodyParser from "body-parser";
 import AuthRouter from "./src/routes/AuthRouter.js";
 import {errorHandler} from "./src/middlewares/ErrorMiddleware.js";
 import UserRouter from "./src/routes/UserRouter.js";
-import {MoviesData} from "./src/fake_data/Movies.js";
 import MovieRouter from "./src/routes/MovieRouter.js";
+
+
 const PORT = process.env.PORT || 5000;
 const app = express()
 
-
-
 dotenv.config()
 Database_Connect()
-app.use(bodyParser.json())
 
+app.use(bodyParser.json())
 app.use(cors());
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);

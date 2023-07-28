@@ -59,7 +59,6 @@ export default class UserService {
     }
 
     static async deleteLikedMovies(_id) {
-        console.log(_id)
         const user = await User.findById(_id);
 
         if (user) {
