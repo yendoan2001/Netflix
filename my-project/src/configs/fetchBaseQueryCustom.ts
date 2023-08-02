@@ -6,7 +6,6 @@ export const baseQuery = fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     prepareHeaders: (headers) => {
         const accessToken = localStorage.getItem(appName)
-        console.log(localStorage)
         if (accessToken) {
             headers.set('authorization', `Bearer ${accessToken}`)
         }
