@@ -1,8 +1,8 @@
 import {createApi} from '@reduxjs/toolkit/query/react'
-import {baseQuery} from "../configs/fetchBaseQueryCustom.ts";
+import {fetchBaseQueryCustom} from "../configs/fetchBaseQueryCustom.ts";
 
 export const apiService = createApi({
-    baseQuery: baseQuery,
+    baseQuery: fetchBaseQueryCustom,
     endpoints: () => ({}),
     refetchOnMountOrArgChange: true
 })

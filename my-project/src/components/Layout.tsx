@@ -1,8 +1,11 @@
 import {FiUser} from "react-icons/fi";
 import {BsFillHeartFill} from "react-icons/bs";
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
+import {MdVideoSettings} from "react-icons/md";
+import {CgMenuBoxed} from "react-icons/cg";
 
 export const LayOut = () => {
+    const pathName = window.location.pathname
     return (
         <div className='bg-[#080a1a]'>
             <div className='bg-[rgb(8,10,26)] max-w-screen-2xl container mx-auto'>
@@ -15,9 +18,8 @@ export const LayOut = () => {
                             <label htmlFor="default-search"
                                    className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                             <div className="relative">
-                                <div
-                                    className="absolute rounded bg-red-600 w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
-                                    <svg className="w-4 h-4 text-gray-500 ml-1 text-white dark:text-gray-400"
+                                <div className="absolute pr-4 bg-red-600 rounded w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
+                                    <svg className="w-4 h-4 text-white ml-1 dark:text-gray-400"
                                          aria-hidden="true"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -25,7 +27,10 @@ export const LayOut = () => {
                                     </svg>
                                 </div>
                                 <input type="search" id="default-search"
-                                       className="block lg:w-[80%] w-full bg-[rgb(224,213,213)] p-3.5 pl-10 text-sm placeholder:p-6 placeholder:text-gray-700 placeholder:font-medium border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-50"
+                                       className="block text-black lg:w-[80%] w-full p-3.5 pl-[70px] text-sm
+                                       placeholder:text-gray-700 placeholder:font-medium border border-gray-300 rounded-lg bg-gray-50
+                                       dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+                                       dark:focus:border-blue-50"
                                        placeholder="Search Movie Name From Here" required/>
                             </div>
                         </div>
@@ -78,6 +83,25 @@ export const LayOut = () => {
                         <div className='text-gray-500 py-1'>Tell: +255 754 661 423</div>
                         <div className='text-gray-500 py-1'>Email: info@zpunet.com</div>
                     </div>
+                </div>
+            </div>
+            <div className='fixed bottom-0 bg-[rgb(11,15,41)] lg:hidden h-[60px] w-full sub_nav'>
+                <div className='h-full grid grid-cols-4 items-center'>
+                    <Link to='/home/videos' className={pathName === '/home/videos' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                        <MdVideoSettings className='w-7 h-7'/></Link>
+                    <Link to='/user/likedMovies' className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                        <BsFillHeartFill className='relative hover:relative w-7 h-7'/>
+                        <div
+                            className='absolute hover:absolute hover:bottom-3/4 bg-red-600 w-max p-1 h-5 rounded-3xl bottom-3/4 flex items-center justify-center'>
+                            200
+                        </div>
+                    </Link>
+                    <Link to='/auth/login' className={pathName.includes('auth') ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                        <FiUser className='w-7 h-7'/>
+                    </Link>
+                    <Link to='/auth/login' className={pathName === '/user/menu' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                        <CgMenuBoxed className='w-8 h-8'/>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import Login from "./pages/Login.tsx";
 import {Provider} from "react-redux";
 import {store} from "./store.ts";
 import Register from "./pages/Register.tsx";
+import Home from "./pages/Home.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     <Route path="/" element={<LayOut/>}>
                         <Route path="/auth/login" element={<Login/>}/>
                         <Route path="/auth/register" element={<Register/>}/>
+                        <Route path="/home/movies" element={<Home/>}/>
                     </Route>
                     {/*<Route path="/" element={<AuthLayout/>}>*/}
                     {/*    <Route path="/layout" element={<LayOut/>}/>*/}

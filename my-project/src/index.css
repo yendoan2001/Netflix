@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ct_sub_nav_hover {
+    @apply hover:transition-all hover:ease-in-out mx-auto hover:duration-300 hover:bg-white hover:w-[60%] hover:rounded-lg hover:h-full text-white hover:text-black hover:flex hover:items-center hover:justify-center
+}
+
+.ct_sub_nav {
+    @apply bg-white w-[60%] mx-auto rounded-lg text-black flex justify-center items-center h-full
+}

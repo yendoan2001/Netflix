@@ -1,4 +1,5 @@
 import {PiSignInBold} from "react-icons/pi";
+import {Link} from "react-router-dom";
 
 const Register = () => {
 
@@ -40,7 +41,7 @@ const Register = () => {
                             Do you have an account?
                         </div>
                         <div className='font-bold text-white'>
-                            <a href="">Sign In</a>
+                            <Link to="/auth/login">Sign In</Link>
                         </div>
                     </div>
                 </div>
