@@ -41,8 +41,7 @@ const Login = () => {
 
     return (
         <div>
-            <div
-                className='bg-[rgb(11,15,41)] mx-auto my-[7%] 2xl:w-[40%] lg:w-[60%] w-[80%] rounded-xl border-gray-600 border '>
+            <div className='bg-[rgb(11,15,41)] mx-auto my-[7%] 2xl:w-[40%] lg:w-[60%] w-[80%] rounded-xl border-gray-600 border '>
                 <div className='pb-16 mb-8'>
                     <div className='w-[20%] logo m-10 mx-auto'>
                         <img src="https://netflixo-ten.vercel.app/images/logo.png" alt=""/>
