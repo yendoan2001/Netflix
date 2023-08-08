@@ -18,7 +18,8 @@ export const LayOut = () => {
                             <label htmlFor="default-search"
                                    className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                             <div className="relative">
-                                <div className="absolute pr-4 bg-red-600 rounded w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
+                                <div
+                                    className="absolute pr-4 bg-red-600 rounded w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
                                     <svg className="w-4 h-4 text-white ml-1 dark:text-gray-400"
                                          aria-hidden="true"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -36,18 +37,26 @@ export const LayOut = () => {
                         </div>
                     </div>
                     <div className='basis-2/6 hidden lg:flex justify-between gap-6 text-sm font-medium options'>
-                        <a href="">Movies</a>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
-                        <a href=""><FiUser className='w-6 h-6'/></a>
-                        <a className='relative' href=""><BsFillHeartFill className='w-6 h-6'/>
+                        <Link to='/home/movies'>
+                            <div className={pathName === '/home/movies' ? 'text-red-600' : ''}>Movies</div>
+                        </Link>
+                        <Link to='/home/movies'>
+                            <div className={pathName === '/home/about' ? 'text-red-600' : ''}>About Us</div>
+                        </Link>
+                        <Link to='/home/movies'>
+                            <div className={pathName === '/home/contact' ? 'text-red-600' : ''}>Contact Us</div>
+                        </Link>
+                        <Link to='/auth/login'>
+                            <FiUser className={pathName === '/auth/login' ? 'text-red-600 w-6 h-6' : 'w-6 h-6'}/>
+                        </Link>
+                        <Link to='' className='relative'><BsFillHeartFill className='w-6 h-6'/>
                             <div
                                 className='absolute bg-red-600 w-5 h-5 rounded-3xl bottom-7 flex items-center justify-center'>0
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </div>
-                <div className='main min-h-max'>
+                <div className=''>
                     <Outlet/>
                 </div>
             </div>
@@ -55,7 +64,7 @@ export const LayOut = () => {
                 <div className='grid lg:grid-cols-4 grid-cols-2 w-[80%] h-full py-12 mx-auto items-center gap-4'>
                     <div>
                         <div className='text-white mb-4 font-semibold tracking-wider text-lg'>Company</div>
-                        <div className='text-gray-500 py-1'>Home</div>
+                        <div className='text-gray-500 py-1'>Movies</div>
                         <div className='text-gray-500 py-1'>About Us</div>
                         <div className='text-gray-500 py-1'>Contact Us</div>
                         <div className='text-gray-500 py-1'>Movies</div>
@@ -87,9 +96,10 @@ export const LayOut = () => {
             </div>
             <div className='fixed bottom-0 bg-[rgb(11,15,41)] lg:hidden h-[60px] w-full sub_nav'>
                 <div className='h-full grid grid-cols-4 items-center'>
-                    <Link to='/home/videos' className={pathName === '/home/videos' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                    <Link to='/home/movies' className={pathName === '/home/movies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
                         <MdVideoSettings className='w-7 h-7'/></Link>
-                    <Link to='/user/likedMovies' className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                    <Link to='/user/likedMovies'
+                          className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
                         <BsFillHeartFill className='relative hover:relative w-7 h-7'/>
                         <div
                             className='absolute hover:absolute hover:bottom-3/4 bg-red-600 w-max p-1 h-5 rounded-3xl bottom-3/4 flex items-center justify-center'>
