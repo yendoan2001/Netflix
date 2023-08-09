@@ -12,9 +12,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!accessToken) {
-            navigate('/auth/login')
-        } else {
+        if (accessToken) {
             navigate('/home/movies')
         }
     }, [accessToken, navigate])

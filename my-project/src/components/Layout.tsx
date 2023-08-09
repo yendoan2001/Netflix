@@ -1,11 +1,19 @@
 import {FiUser} from "react-icons/fi";
 import {BsFillHeartFill} from "react-icons/bs";
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useNavigate} from "react-router-dom";
 import {MdVideoSettings} from "react-icons/md";
 import {CgMenuBoxed} from "react-icons/cg";
+import {useEffect} from "react";
 
 export const LayOut = () => {
     const pathName = window.location.pathname
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (pathName === '/') {
+            navigate('/home/movies')
+        }
+    }, [pathName])
     return (
         <div className='bg-[#080a1a]'>
             <div className='bg-[rgb(8,10,26)] max-w-screen-2xl container mx-auto'>
@@ -18,7 +26,8 @@ export const LayOut = () => {
                             <label htmlFor="default-search"
                                    className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                             <div className="relative">
-                                <div className="absolute pr-4 bg-red-600 rounded w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
+                                <div
+                                    className="absolute pr-4 bg-red-600 rounded w-[50px] inset-y-0 flex items-center pl-3 pointer-events-none">
                                     <svg className="w-4 h-4 text-white ml-1 dark:text-gray-400"
                                          aria-hidden="true"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -36,10 +45,10 @@ export const LayOut = () => {
                         </div>
                     </div>
                     <div className='basis-2/6 hidden lg:flex justify-between gap-6 text-sm font-medium options'>
-                        <a href="">Movies</a>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
-                        <a href=""><FiUser className='w-6 h-6'/></a>
+                        <Link to="/home/movies">Movies</Link>
+                        <Link to="/home/about">About Us</Link>
+                        <Link to="/home/contact">Contact Us</Link>
+                        <Link to="/auth/login"><FiUser className='w-6 h-6'/></Link>
                         <a className='relative' href=""><BsFillHeartFill className='w-6 h-6'/>
                             <div
                                 className='absolute bg-red-600 w-5 h-5 rounded-3xl bottom-7 flex items-center justify-center'>0
@@ -89,7 +98,8 @@ export const LayOut = () => {
                 <div className='h-full grid grid-cols-4 items-center'>
                     <Link to='/home/videos' className={pathName === '/home/videos' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
                         <MdVideoSettings className='w-7 h-7'/></Link>
-                    <Link to='/user/likedMovies' className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                    <Link to='/user/likedMovies'
+                          className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
                         <BsFillHeartFill className='relative hover:relative w-7 h-7'/>
                         <div
                             className='absolute hover:absolute hover:bottom-3/4 bg-red-600 w-max p-1 h-5 rounded-3xl bottom-3/4 flex items-center justify-center'>
