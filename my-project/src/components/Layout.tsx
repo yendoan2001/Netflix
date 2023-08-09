@@ -19,7 +19,7 @@ export const LayOut = () => {
             <div className='bg-[rgb(8,10,26)] max-w-screen-2xl container mx-auto'>
                 <div className='bg-[#080a1a] h-[100px] text-white px-6 mx-auto flex items-center nav_bar'>
                     <div className='lg:block hidden lg:basis-1/6 logo'>
-                        <img className='w-[60%]' src="https://netflixo-ten.vercel.app/images/logo.png" alt=""/>
+                        <Link to='/home'><img className='w-[60%]' src="https://netflixo-ten.vercel.app/images/logo.png" alt=""/></Link>
                     </div>
                     <div className='lg:basis-3/6 w-full search_input'>
                         <div>
@@ -45,18 +45,26 @@ export const LayOut = () => {
                         </div>
                     </div>
                     <div className='basis-2/6 hidden lg:flex justify-between gap-6 text-sm font-medium options'>
-                        <Link to="/home/movies">Movies</Link>
-                        <Link to="/home/about">About Us</Link>
-                        <Link to="/home/contact">Contact Us</Link>
-                        <Link to="/auth/login"><FiUser className='w-6 h-6'/></Link>
-                        <a className='relative' href=""><BsFillHeartFill className='w-6 h-6'/>
+                        <Link to='/home/movies'>
+                            <div className={pathName === '/home/movies' ? 'text-red-600' : ''}>Movies</div>
+                        </Link>
+                        <Link to='/home/about'>
+                            <div className={pathName === '/home/about' ? 'text-red-600' : ''}>About Us</div>
+                        </Link>
+                        <Link to='/home/contact'>
+                            <div className={pathName === '/home/contact' ? 'text-red-600' : ''}>Contact Us</div>
+                        </Link>
+                        <Link to='/auth/login'>
+                            <FiUser className={pathName === '/auth/login' ? 'text-red-600 w-6 h-6' : 'w-6 h-6'}/>
+                        </Link>
+                        <Link to='' className='relative'><BsFillHeartFill className='w-6 h-6'/>
                             <div
                                 className='absolute bg-red-600 w-5 h-5 rounded-3xl bottom-7 flex items-center justify-center'>0
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </div>
-                <div className='main min-h-max'>
+                <div className=''>
                     <Outlet/>
                 </div>
             </div>
@@ -64,7 +72,7 @@ export const LayOut = () => {
                 <div className='grid lg:grid-cols-4 grid-cols-2 w-[80%] h-full py-12 mx-auto items-center gap-4'>
                     <div>
                         <div className='text-white mb-4 font-semibold tracking-wider text-lg'>Company</div>
-                        <div className='text-gray-500 py-1'>Home</div>
+                        <div className='text-gray-500 py-1'>Movies</div>
                         <div className='text-gray-500 py-1'>About Us</div>
                         <div className='text-gray-500 py-1'>Contact Us</div>
                         <div className='text-gray-500 py-1'>Movies</div>
@@ -96,7 +104,7 @@ export const LayOut = () => {
             </div>
             <div className='fixed bottom-0 bg-[rgb(11,15,41)] lg:hidden h-[60px] w-full sub_nav'>
                 <div className='h-full grid grid-cols-4 items-center'>
-                    <Link to='/home/videos' className={pathName === '/home/videos' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
+                    <Link to='/home/movies' className={pathName === '/home/movies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
                         <MdVideoSettings className='w-7 h-7'/></Link>
                     <Link to='/user/likedMovies'
                           className={pathName === '/user/likedMovies' ? 'ct_sub_nav' : 'ct_sub_nav_hover'}>
