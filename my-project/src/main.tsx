@@ -11,6 +11,8 @@ import Movies from "./pages/Movies.tsx";
 import Home from "./pages/Home";
 import {Contact} from "./pages/Contact.tsx";
 import {ProfileUpdate} from "./pages/ProfileUpdate.tsx";
+import {ChangePassword} from "./pages/ChangePassword.tsx";
+import {FavoriteMovies} from "./pages/FavoriteMovies.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -23,7 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         <Route path="/home/movies" element={<Movies/>}/>
                         <Route path="/home" element={<Home/>}/>
                         <Route path="/home/contact" element={<Contact/>}/>
-                        <Route path="/profile" element={<ProfileUpdate/>}/>
+                        <Route path="/user/profile" element={<ProfileUpdate/>}/>
+                        <Route path="/user/password" element={<ChangePassword/>}/>
+                        <Route path="/user/favorite" element={<FavoriteMovies/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
