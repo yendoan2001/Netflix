@@ -10,7 +10,7 @@ export default class AuthService {
             throw new Error('This user does not exist')
         }
         const isMatch = await bcrypt.compare(password, user.password)
-        const accessToken = await this.generateToken(user)
+        const accessToken = await this.generateAccessToken(user)
         if (!isMatch) {
             throw new Error('Password is incorrect')
         }
@@ -30,14 +30,21 @@ export default class AuthService {
         user.password = passwordHash
         user.isAdmin = false;
         await user.save()
-        const accessToken = await this.generateToken(user)
+        const accessToken = await this.generateAccessToken(user)
         return [user, accessToken]
     }
 
-    static async generateToken(user) {
+    static async generateAccessToken(user) {
         let {_id, fullName, email, isAdmin} = user;
         let payload = {_id, fullName, email, isAdmin};
-        return jwt.sign(payload, `${process.env.JWT_SECRET_KEY}`, {expiresIn: "1y"}
+        return jwt.sign(payload, `${process.env.JWT_SECRET_KEY}`, {expiresIn: "30m"}
         );
     }
+
+    static generateRefreshToken(value) {
+        let {_id, fullName, email, isAdmin} = user;
+        let payload = {_id, fullName, email, isAdmin};
+        return jwt.sign(payload, `${process.env.JWT_SECRET_KEY}`, {expiresIn: "1d"})
+    }
+
 }

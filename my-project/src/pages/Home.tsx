@@ -11,7 +11,8 @@ const Home = () => {
     return (
         <div className='px-6'>
             <div className='relative w-full h-full'>
-                <img className='lg:object-none object-cover w-full md:h-[400px] h-[200px]'
+                <img className='object-cover w-full md:h-[300px] lg:h-[400px] h-[200px]'
+
                      src="https://firebasestorage.googleapis.com/v0/b/netflixo-minah.appspot.com/o/99abbb7b-38b4-4116-895e-34d3a2fc1d00.jpeg?alt=media"
                      alt=""/>
                 <div className='absolute top-0 bg-opacity-40 bg-black w-full h-full flex items-center'>
@@ -31,8 +32,8 @@ const Home = () => {
                             </div>
                         </div>
                         <div className='flex justify-between items-center'>
-                            <div className='bg-red-600 px-8 py-3 rounded-md font-medium'>Watch</div>
-                            <div className='bg-gray-500 px-4 py-3 rounded-md'>
+                            <div className='bg-red-600 px-8 py-3 rounded-md font-bold hover:cursor-pointer hover:text-black transition-all ease-in-out duration-300 hover:transition-all hover:ease-in-out hover:duration-300'>Watch</div>
+                            <div className='bg-gray-500 px-4 py-3 rounded-md hover:text-red-600 hover:cursor-pointer transition-all ease-in-out duration-300 hover:transition-all hover:ease-in-out hover:duration-300'>
                                 <BsFillSuitHeartFill/>
                             </div>
 
@@ -88,7 +89,8 @@ const Home = () => {
                 <div className='text-red-600 text-2xl'><GiTusksFlag/></div>
                 <div className='text-white font-extrabold text-xl tracking-wide'>Top Rated</div>
             </div>
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+
                 <RatedImageCard/>
                 <RatedImageCard/>
                 <RatedImageCard/>

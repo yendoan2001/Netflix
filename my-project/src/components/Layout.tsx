@@ -1,17 +1,25 @@
 import {FiUser} from "react-icons/fi";
 import {BsFillHeartFill} from "react-icons/bs";
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useNavigate} from "react-router-dom";
 import {MdVideoSettings} from "react-icons/md";
 import {CgMenuBoxed} from "react-icons/cg";
+import {useEffect} from "react";
 
 export const LayOut = () => {
     const pathName = window.location.pathname
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (pathName === '/') {
+            navigate('/home/movies')
+        }
+    }, [pathName])
     return (
         <div className='bg-[#080a1a]'>
             <div className='bg-[rgb(8,10,26)] max-w-screen-2xl container mx-auto'>
                 <div className='bg-[#080a1a] h-[100px] text-white px-6 mx-auto flex items-center nav_bar'>
                     <div className='lg:block hidden lg:basis-1/6 logo'>
-                        <img className='w-[60%]' src="https://netflixo-ten.vercel.app/images/logo.png" alt=""/>
+                        <Link to='/home'><img className='w-[60%]' src="https://netflixo-ten.vercel.app/images/logo.png" alt=""/></Link>
                     </div>
                     <div className='lg:basis-3/6 w-full search_input'>
                         <div>
@@ -40,10 +48,10 @@ export const LayOut = () => {
                         <Link to='/home/movies'>
                             <div className={pathName === '/home/movies' ? 'text-red-600' : ''}>Movies</div>
                         </Link>
-                        <Link to='/home/movies'>
+                        <Link to='/home/about'>
                             <div className={pathName === '/home/about' ? 'text-red-600' : ''}>About Us</div>
                         </Link>
-                        <Link to='/home/movies'>
+                        <Link to='/home/contact'>
                             <div className={pathName === '/home/contact' ? 'text-red-600' : ''}>Contact Us</div>
                         </Link>
                         <Link to='/auth/login'>
