@@ -12,6 +12,7 @@ const Home = () => {
         <div className='px-6'>
             <div className='relative w-full h-full'>
                 <img className='object-cover w-full md:h-[300px] lg:h-[400px] h-[200px]'
+
                      src="https://firebasestorage.googleapis.com/v0/b/netflixo-minah.appspot.com/o/99abbb7b-38b4-4116-895e-34d3a2fc1d00.jpeg?alt=media"
                      alt=""/>
                 <div className='absolute top-0 bg-opacity-40 bg-black w-full h-full flex items-center'>
@@ -89,6 +90,7 @@ const Home = () => {
                 <div className='text-white font-extrabold text-xl tracking-wide'>Top Rated</div>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+
                 <RatedImageCard/>
                 <RatedImageCard/>
                 <RatedImageCard/>

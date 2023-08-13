@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import {Contact} from "./pages/Contact.tsx";
 import {ProfileUpdate} from "./pages/ProfileUpdate.tsx";
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Provider store={store}>
