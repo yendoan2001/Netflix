@@ -1,81 +1,56 @@
-import {Select} from "antd";
 import {ImageCard} from "../components/ImageCard";
 import {TbPlayerTrackNext, TbPlayerTrackPrev} from "react-icons/tb";
+
 
 const Movies = () => {
     return (
         <div className='px-6'>
             <div className='bg-[rgb(11,15,41)] rounded-lg border-gray-800 border my-4 mx-auto h-max p-6 selector'>
-                <div className='text-white w-full xl:gap-12 gap-4 grid md:grid-cols-5 grid-cols-2 justify-center items-center'>
-                    <div className='mx-auto w-full'>
-                        <Select
-                            className='w-full'
-                            defaultValue="lucy"
-                            size='large'
-                            // onChange={handleChange}
-                            options={[
-                                {value: 'jack', label: 'Jack'},
-                                {value: 'lucy', label: 'Lucy'},
-                                {value: 'Yiminghe', label: 'yiminghe'},
-                                {value: 'disabled', label: 'Disabled', disabled: true},
-                            ]}
-                        />
+                <div className='text-white w-full xl:gap-12 md:gap-6 gap-2 grid md:grid-cols-5 grid-cols-2 justify-center items-center'>
+                    <div>
+                        <select id="countries" className="bg-[rgb(8,10,26)] border border-gray-800 text-gray-200 text-sm rounded-lg focus:ring-blue-500 block w-full p-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>All Categories</option>
+                            <option className='' value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
                     </div>
-                    <div className='mx-auto w-full'>
-                        <Select
-                            className='w-full'
-                            size='large'
-                            defaultValue="lucy"
-                            // onChange={handleChange}
-                            options={[
-                                {value: 'jack', label: 'Jack'},
-                                {value: 'lucy', label: 'Lucy'},
-                                {value: 'Yiminghe', label: 'yiminghe'},
-                                {value: 'disabled', label: 'Disabled', disabled: true},
-                            ]}
-                        />
+                    <div>
+                        <select id="countries" className="bg-[rgb(8,10,26)] border border-gray-800 text-gray-200 text-sm rounded-lg focus:ring-blue-500 block w-full p-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Sorted By Language</option>
+                            <option className='' value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
                     </div>
-                    <div className='mx-auto w-full'>
-                        <Select
-                            className='w-full'
-                            size='large'
-                            defaultValue="lucy"
-                            // onChange={handleChange}
-                            options={[
-                                {value: 'jack', label: 'Jack'},
-                                {value: 'lucy', label: 'Lucy'},
-                                {value: 'Yiminghe', label: 'yiminghe'},
-                                {value: 'disabled', label: 'Disabled', disabled: true},
-                            ]}
-                        />
+                    <div>
+                        <select id="countries" className="bg-[rgb(8,10,26)] border border-gray-800 text-gray-200 text-sm rounded-lg focus:ring-blue-500 block w-full p-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Sorted By Year</option>
+                            <option className='' value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
                     </div>
-                    <div className='mx-auto w-full'>
-                        <Select
-                            className='w-full'
-                            size='large'
-                            defaultValue="lucy"
-                            // onChange={handleChange}
-                            options={[
-                                {value: 'jack', label: 'Jack'},
-                                {value: 'lucy', label: 'Lucy'},
-                                {value: 'Yiminghe', label: 'yiminghe'},
-                                {value: 'disabled', label: 'Disabled', disabled: true},
-                            ]}
-                        />
+                    <div>
+                        <select id="countries" className="bg-[rgb(8,10,26)] border border-gray-800 text-gray-200 text-sm rounded-lg focus:ring-blue-500 block w-full p-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Sorted By Hours</option>
+                            <option className='' value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
                     </div>
-                    <div className='mx-auto w-full'>
-                        <Select
-                            className='w-full'
-                            size='large'
-                            defaultValue="lucy"
-                            // onChange={handleChange}
-                            options={[
-                                {value: 'jack', label: 'Jack'},
-                                {value: 'lucy', label: 'Lucy'},
-                                {value: 'Yiminghe', label: 'yiminghe'},
-                                {value: 'disabled', label: 'Disabled', disabled: true},
-                            ]}
-                        />
+                    <div>
+                        <select id="countries" className="bg-[rgb(8,10,26)] border border-gray-800 text-gray-200 text-sm rounded-lg focus:ring-blue-500 block w-full p-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Sorted By Rates</option>
+                            <option className='' value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
                     </div>
                 </div>
             </div>
